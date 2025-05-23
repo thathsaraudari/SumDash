@@ -1,0 +1,39 @@
+body {
+  background: #db8888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  color: white;
+}
+
+#game-div {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+#grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.row {
+  display: flex;
+  gap: 1px;
+}
+
+.cell {
+  width: 25px;
+  height: 25px;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: white;
+}
+
