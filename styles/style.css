@@ -37,3 +37,9 @@ body {
   color: white;
 }
 
+.pause-btn {
+  margin-top: 50%;
+  padding-top: 100%;
+  position:absolute;
+}
+

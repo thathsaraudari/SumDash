@@ -8,7 +8,7 @@ class Grid {
   }
 
   initializeGrid() {
-    let rowDivs = document.querySelectorAll("row");
+    let rowDivs = document.querySelectorAll("div.row");
 
     rowDivs.forEach(row => {
         let rowValues =[];
@@ -22,6 +22,42 @@ class Grid {
         });
 
         this.cellValues.push(rowValues);
+        this.cellDivs.push(rowDivs);
     })
   }
+
+  renderGrid() {
+    for(let row = 0; row < this.rows; row++) {
+        for(let col = 0; col < this.cols; col++){
+            let cellvalue = this.cellValues[row][col];
+            let cellDiv = this.cellDivs[row][col];
+
+            if(cellvalue !== null) {
+                cellDiv.innerText = cellvalue;
+                cellDiv.style.backgroundColor = "#4caf50";
+            } else {
+                cellDiv.innerText = "";
+                cellDiv.style.backgroundColor = "#333";
+            }
+        }
+    }
+  }
+
+  isInsideGrid(row, col) {
+    return row >= 0 && row < this.rows && col >= 0 && col < this.cols;
+  }
+
+  isCellEmpty(row, col) {
+    return this.cellValues[row][col] === null;
+  }
+
+  clearCellValue(row, col) {
+    this.cellValues[row][col] = null;
+  }
+
+  setCellValue(row, col, value) {
+    this.cellValues[row][col] = value
+  }
+
+
 }
