@@ -58,9 +58,49 @@
                 this.grid.setCellValue(nextRow, col, value);
             } else {
                 this.generateNewSquare();
+                this.isClear();
             }
 
             this.grid.renderGrid();
         }, 500)
     }
+
+    isClear() {
+
+      for(let row = 0; row < this.grid.rows; row++) {
+        console.log(row);
+
+        for(let startCol = 0; startCol < this.grid.cols; startCol++) {
+          let sum = 0;
+          let cells = [];
+
+          for(let col = startCol; col < this.grid.cols; col++) {
+            // console.log(`row${row} - startCol${startCol}`);
+            let cellValue = this.grid.cellValues[row][col];
+            if(cellValue === null) {
+              break;
+            }
+
+            sum += cellValue;
+            cells.push({
+              row: row,
+              col: col
+            });
+
+            if(sum === this.targetSum){
+              console.log("sum");
+              cells.forEach(cell => {
+                this.grid.clearCellValue(cell.row, cell.col);
+              })
+              break;
+            } else if(sum > this.targetSum) {
+              console.log("greater than sum")
+              break;
+            }
+          }
+        }
+      }
+
+    }
 }
+
