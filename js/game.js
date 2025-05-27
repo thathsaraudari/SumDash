@@ -59,6 +59,7 @@
             } else {
                 this.generateNewSquare();
                 this.isClear();
+                this.grid.applyGravity()
             }
 
             this.grid.renderGrid();
@@ -137,14 +138,6 @@
       }
     }
 
-    updateGravity() {
-      for(let col = 0; col < this.cols; col++) {
-
-        for(let row = this.rows - 1; row >= 0; row--) {
-
-
-        }
-      }
-    }
+  
  }
 

@@ -59,5 +59,26 @@ class Grid {
     this.cellValues[row][col] = value
   }
 
+  applyGravity(){
+    for(let col = 0; col < this.cols; col++){
+      let valuesInCol = [];
 
+      for(let row = 0; row < this.rows; row++){
+        
+        let cellValue = this.cellValues[row][col];
+        if(cellValue !== null) {
+          valuesInCol.push(cellValue);
+          this.clearCellValue(row, col);
+        }
+      }
+
+      let numOfSquaresFound = valuesInCol.length;
+
+      for(let i = this.rows-1; i > this.rows - 1 - numOfSquaresFound; i--) {
+        this.setCellValue(i, col, valuesInCol.pop());
+      }
+    }
+
+    this.renderGrid();
+  }
 }

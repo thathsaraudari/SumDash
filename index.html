@@ -7,7 +7,13 @@
     <title>SumDash</title>
 </head>
 <body>
+    <div id="start-screen">
+        <h1>Sum Dash</h1>
+        <button id="start-game">Play</button>
+    </div>
+
     <div id="game-div">
+        
         <div id="grid">
             <div class="row">
                 <div class="cell" data-row="0" data-col="0"></div>
@@ -268,10 +274,13 @@
                 <div class="cell" data-row="19" data-col="8"></div>
                 <div class="cell" data-row="19" data-col="9"></div>
             </div>
+        </div>
+        <section>
+            <h3>Score:<span id="score">0</span></h3>
+             <button id="pause-button">Pause</button>
+        </section>
+        <div id = "game-screen"></div>
     </div>
-    </div>
-        <h3>Score:<span id="score">0</span></h3>
-        <button id="pause-button">Pause</button>
     
     <script type="text/javascript" src="js/grid.js"></script>
     <script type="text/javascript" src="js/square.js"></script>

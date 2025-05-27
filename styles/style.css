@@ -38,8 +38,13 @@ body {
 }
 
 .pause-btn {
-  margin-top: 50%;
   padding-top: 100%;
   position:absolute;
+  margin-right: auto;
 }
 
+
+#start-screen{
+  display: none;
+  background-color: pink;
+}
