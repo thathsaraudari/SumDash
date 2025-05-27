@@ -15,20 +15,27 @@
             let col = this.currentSquare.col;
             
             let nextCol = col;
+            let nextRow = row;
 
             if(e.key === "ArrowRight") {
-                console.log("right");
+                // console.log("right");
                 nextCol++;
             } else if( e.key === "ArrowLeft") {
-                console.log("left");
+                // console.log("left");
                 nextCol--;
+            } else if(e.key === "ArrowDown"){
+              console.log("down")
+                nextRow++;
             }
 
+
+
             
-            if(this.grid.isInsideGrid(row, nextCol) && this.grid.isCellEmpty(row, nextCol)) {
+            if(this.grid.isInsideGrid(nextRow, nextCol) && this.grid.isCellEmpty(nextRow , nextCol)) {
                 this.grid.clearCellValue(row, col);
                 this.currentSquare.col = nextCol;
-                this.grid.setCellValue(row, nextCol, this.currentSquare.value);
+                this.currentSquare.row = nextRow ;
+                this.grid.setCellValue(nextRow , nextCol, this.currentSquare.value);
                 this.grid.renderGrid();
             }
 
