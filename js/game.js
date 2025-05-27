@@ -101,6 +101,50 @@
         }
       }
 
+      //check vertically
+      for(let col = 0; col < this.grid.cols; col++) {
+        console.log(col);
+
+        for(let startRow = 0; startRow < this.grid.rows; startRow++) {
+          let sum = 0;
+          let cells = [];
+
+          for(let row = startRow; row < this.grid.rows; row++) {
+            // console.log(`row${row} - startCol${startCol}`);
+            let cellValue = this.grid.cellValues[row][col];
+            if(cellValue === null) {
+              break;
+            }
+
+            sum += cellValue;
+            cells.push({
+              row: row,
+              col: col
+            });
+
+            if(sum === this.targetSum){
+              console.log("sum");
+              cells.forEach(cell => {
+                this.grid.clearCellValue(cell.row, cell.col);
+              })
+              break;
+            } else if(sum > this.targetSum) {
+              console.log("greater than sum")
+              break;
+            }
+          }
+        }
+      }
     }
-}
+
+    updateGravity() {
+      for(let col = 0; col < this.cols; col++) {
+
+        for(let row = this.rows - 1; row >= 0; row--) {
+
+
+        }
+      }
+    }
+ }
 
