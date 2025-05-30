@@ -5,6 +5,10 @@
         this.targetSum = targetSum;
         this.score = 0;
         this.scoreLabel = document.getElementById('score');
+        this.pauseButton = document.getElementById('pause-button');
+        this.isPaused = true;
+
+        this.pauseButton.addEventListener('click', () => this.startPauseGame());
     }
 
     startGame() {
@@ -55,6 +59,9 @@
 
     startGameLoop() {
         setInterval(() => {
+            if (this.isPaused) {
+              return;
+            } 
             const row = this.currentSquare.row;
             const col = this.currentSquare.col;
             const value = this.currentSquare.value;
@@ -152,6 +159,21 @@
         }
       }
 
+    }
+
+    startPauseGame() {
+      console.log('clicked');
+      let buttonText = this.pauseButton.innerText;
+      if (buttonText === 'Start Game' && this.isPaused) {
+        this.pauseButton.innerText = 'Pause Game';
+        this.isPaused = false;
+      } else if(buttonText === 'Pause Game' && !this.isPaused) {
+        this.pauseButton.innerText = 'Resume Game';
+        this.isPaused = true;
+      } else if (buttonText === 'Resume Game' && this.isPaused) {
+        this.pauseButton.innerText = 'Pause Game';
+        this.isPaused = false;
+      }
     }
 
   

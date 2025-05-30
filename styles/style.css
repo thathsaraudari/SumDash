@@ -19,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  margin: 20px
 }
 
 .row {
@@ -37,14 +38,6 @@ body {
   color: white;
 }
 
-.pause-btn {
-  padding-top: 100%;
-  position:absolute;
-  margin-right: auto;
-}
-
-
-#start-screen{
-  display: none;
-  background-color: pink;
+#pause-button {
+  width: 130px;
 }
