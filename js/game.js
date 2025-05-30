@@ -76,6 +76,7 @@
                 this.generateNewSquare();
                 this.isClear();
                 this.grid.applyGravity()
+                this.isGameOver();
             }
 
             this.grid.renderGrid();
@@ -159,6 +160,22 @@
         }
       }
 
+    }
+
+    isGameOver() {
+
+      let gameOver = false;
+
+      for(let col = 0; col< this.grid.cols; col++) {
+        if(!this.grid.isCellEmpty(1, col)) {
+          gameOver = true;
+          break;
+        }
+      }
+
+      if(gameOver) {
+        alert('Game Over')
+      }
     }
 
     startPauseGame() {
