@@ -3,6 +3,8 @@
         this.grid = new Grid(rows, cols);
         this.currentSquare = null;
         this.targetSum = targetSum;
+        this.score = 0;
+        this.scoreLabel = document.getElementById('score');
     }
 
     startGame() {
@@ -99,7 +101,10 @@
               console.log("sum");
               cells.forEach(cell => {
                 this.grid.clearCellValue(cell.row, cell.col);
-              })
+              });
+
+              this.score += 20;
+              this.scoreLabel.innerText = this.score;
               break;
             } else if(sum > this.targetSum) {
               console.log("greater than sum")
@@ -108,6 +113,7 @@
           }
         }
       }
+
 
       //check vertically
       for(let col = 0; col < this.grid.cols; col++) {
@@ -134,7 +140,9 @@
               console.log("sum");
               cells.forEach(cell => {
                 this.grid.clearCellValue(cell.row, cell.col);
-              })
+              });
+              this.score += 20;
+              this.scoreLabel.innerText = this.score;
               break;
             } else if(sum > this.targetSum) {
               console.log("greater than sum")
@@ -143,6 +151,7 @@
           }
         }
       }
+
     }
 
   
