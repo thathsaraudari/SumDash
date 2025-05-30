@@ -4,6 +4,7 @@
         this.currentSquare = null;
         this.targetSum = targetSum;
         this.score = 0;
+        this.isPaused = true;
         this.scoreLabel = document.getElementById('score');
         this.pauseButton = document.getElementById('pause-button');
         this.pauseButton.addEventListener('click', () => this.startPauseGame());
