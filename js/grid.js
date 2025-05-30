@@ -81,4 +81,15 @@ class Grid {
 
     this.renderGrid();
   }
+
+  resetGrid() {
+    
+    for(let row=0; row < this.rows; row++) {
+      for(let col=0; col < this.cols; col++) {
+        this.clearCellValue(row, col);
+      }
+    }
+    
+    this.renderGrid();
+  }
 }

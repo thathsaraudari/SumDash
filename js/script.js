@@ -1,3 +1,3 @@
-const game = new Game(20, 10, 20);
+const game = new Game(15, 10, 20);
 game.startGame();
 

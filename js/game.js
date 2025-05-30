@@ -6,8 +6,6 @@
         this.score = 0;
         this.scoreLabel = document.getElementById('score');
         this.pauseButton = document.getElementById('pause-button');
-        this.isPaused = true;
-
         this.pauseButton.addEventListener('click', () => this.startPauseGame());
     }
 
@@ -48,10 +46,19 @@
 
         });
     }
+
+    resetGame() {
+      this.isPaused = true;
+      this.pauseButton.innerText = "Start Game";
+      this.score = 0;
+      this.scoreLabel.innerText = this.score;
+
+      this.grid.resetGrid()
+    }
     
 
     generateNewSquare() {
-        const numberList = [2, 4, 5, 10];
+        const numberList = [1, 2, 4, 5, 7, 10];
         const randomIndex = Math.floor(Math.random() * numberList.length);
         const randomNumber = numberList[randomIndex];
         this.currentSquare = new Square(randomNumber);
@@ -80,7 +87,7 @@
             }
 
             this.grid.renderGrid();
-        }, 500)
+        }, 200)
     }
 
     isClear() {
@@ -174,7 +181,9 @@
       }
 
       if(gameOver) {
-        alert('Game Over')
+        alert(`Game Over. Your Score is ${this.score}`);
+        this.resetGame();
+
       }
     }
 
